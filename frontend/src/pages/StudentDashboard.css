@@ -1,0 +1,405 @@
+.dashboard-view-wrapper {
+  background-color: #f8fafc; /* Premium clean light gray backdrop */
+  padding: 40px 6rem;
+  min-height: 90vh;
+  width: 100%;
+}
+
+/* --- ACTION NAVIGATION STRIP --- */
+.dashboard-action-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.strip-branding h1 {
+  margin: 4px 0 0 0;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -1px;
+}
+
+.strip-badge {
+  background-color: #e0e7ff;
+  color: #4f46e5;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.btn-dashboard-logout {
+  background-color: #ffffff;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.btn-dashboard-logout:hover {
+  color: #ef4444;
+  border-color: #fca5a5;
+}
+
+/* --- CARD STRUCTURE BASE ENGINE --- */
+.metric-card-base {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 28px;
+}
+
+/* --- THE MAIN USER BANNER PROFILE CARD --- */
+.profile-hero-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.02);
+}
+
+.profile-flex-node {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.profile-avatar-frame {
+  width: 84px;
+  height: 84px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #4f46e5 0%, #c084fc 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-placeholder-initials {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.status-indicator-dot {
+  width: 14px;
+  height: 14px;
+  background-color: #22c55e; /* Secure Active Online Indicator */
+  border: 3px solid #ffffff;
+  border-radius: 50px;
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+}
+
+.profile-user-name {
+  margin: 0 0 8px 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+}
+
+.profile-badges-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.meta-badge {
+  background-color: #f1f5f9;
+  color: #475569;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.profile-department-subtext {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.profile-department-subtext strong {
+  color: #334155;
+}
+
+.profile-action-cluster {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-action-purple {
+  background-color: #4f46e5;
+  color: #ffffff;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-action-purple:hover { background-color: #4338ca; }
+
+.btn-action-trans {
+  background: transparent;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-action-trans:hover { background-color: #f1f5f9; }
+
+/* --- GRID AREA MAPS --- */
+.dashboard-content-layout-grid {
+  display: flex;
+  gap: 32px;
+}
+
+.analytics-left-column {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dual-metric-cards-row {
+  display: flex;
+  gap: 24px;
+}
+
+.evaluation-purple-theme {
+  flex: 1.3;
+}
+
+.credits-radial-theme {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.analytics-right-sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* --- EVALUATION CARD INSIDES --- */
+.card-top-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.card-category-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.5px;
+}
+
+.card-graphic-icon {
+  font-size: 1.2rem;
+}
+
+.card-main-title {
+  margin: 0 0 16px 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.score-display-block {
+  margin-bottom: 20px;
+}
+
+.score-bold-accent {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #4f46e5;
+}
+
+.score-denominator-scale {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.progress-track-bar-bg {
+  height: 8px;
+  background-color: #f1f5f9;
+  border-radius: 50px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.progress-fill-thumb {
+  height: 100%;
+  background: linear-gradient(90deg, #4f46e5 0%, #c084fc 100%);
+  border-radius: 50px;
+}
+
+/* --- RADIAL METHOD CREDITS INTERFACES --- */
+.radial-visual-container {
+  margin: 20px 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  border: 8px solid #f1f5f9;
+  border-top-color: #c084fc; /* Emulating a radial tracker bar simply */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radial-inner-number {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0f172a;
+  display: block;
+  line-height: 1;
+}
+
+.radial-inner-label {
+  font-size: 0.7rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.radial-footer-subtext {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+/* --- ATTENDANCE OVERVIEW SHEET --- */
+.attendance-horizontal-card {
+  padding: 24px;
+}
+
+.attendance-flex-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.attendance-text-side {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.attendance-badge-icon {
+  width: 44px;
+  height: 44px;
+  background-color: #fae8ff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.attendance-text-side h3 {
+  margin: 0 0 4px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.attendance-text-side p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.attendance-mock-chart-bars {
+  display: flex;
+  gap: 6px;
+  align-items: flex-end;
+  height: 44px;
+}
+
+.mock-chart-bar-pill {
+  width: 8px;
+  background-color: #db2777;
+  border-radius: 50px;
+}
+
+.fill-80 { height: 32px; opacity: 0.4; }
+.fill-95 { height: 40px; opacity: 0.7; }
+.fill-90 { height: 36px; opacity: 0.6; }
+.fill-100 { height: 44px; }
+/* QUICK LINKS NAV */
+.quick-links-navigation-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.link-navigation-row {
+  width: 100%;
+  background: none;
+  border: 1px solid #f1f5f9;
+  padding: 12px 14px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.link-navigation-row:hover {
+  background-color: #f8fafc;
+  border-color: #e2e8f0;
+  color: #4f46e5;
+}
+
+.arrow-icon {
+  color: #94a3b8;
+}
+
+/* RESPONSIVE LAYOUT MATRIX SWITCH */
+@media (max-width: 1100px) {
+  .dashboard-view-wrapper { padding: 40px 2rem; }
+  .dashboard-content-layout-grid { flex-direction: column; }
+  .profile-hero-card { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .profile-action-cluster { width: 100%; }
+  .profile-action-cluster button { flex: 1; }
+}
+
+@media (max-width: 600px) {
+  .dual-metric-cards-row { flex-direction: column; }
+}

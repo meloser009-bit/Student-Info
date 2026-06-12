@@ -1,0 +1,363 @@
+.home-page-wrapper {
+  background-color: #ffffff;
+  color: #0f172a;
+  width: 100%;
+}
+
+/* --- THE NAVBAR ENGINE --- */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 6rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  font-size: 1.3rem;
+}
+
+.navbar-logo h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-text-link {
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.nav-text-link.active, .nav-text-link:hover {
+  color: #4f46e5;
+}
+
+.btn-navbar-started {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0.65rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.2);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-navbar-started:hover {
+  background-color: #4338ca;
+  transform: scale(1.02);
+}
+
+/* --- HERO SPLASH GRID SECTION --- */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 90px 20px 80px 20px;
+}
+
+.announcement-badge {
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 50px;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+.hero-title {
+  font-size: 3.6rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #0f172a;
+  margin: 0 0 24px 0;
+  letter-spacing: -1.5px;
+}
+
+.hero-italic-accent {
+  color: #4f46e5;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.hero-description {
+  font-size: 1.15rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 36px;
+}
+
+.hero-btn-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.btn-purple-primary {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-purple-primary:hover {
+  background-color: #4338ca;
+}
+
+.btn-link-secondary {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 14px 16px;
+}
+
+.btn-link-secondary:hover {
+  color: #4f46e5;
+}
+
+/* --- PATHWAY INTERACTIVE CARDS MATRIX --- */
+.pathway-section {
+  padding: 40px 6rem 80px 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid-main-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  color: #0f172a;
+}
+
+.grid-subtitle {
+  color: #64748b;
+  margin: 0 0 44px 0;
+  font-size: 1rem;
+}
+
+.pathway-grid-container {
+  display: flex;
+  gap: 24px;
+}
+
+.pathway-card {
+  flex: 1;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 40px 32px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pathway-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.06);
+  border-color: #cbd5e1;
+}
+
+.card-badge-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 1.25rem;
+  margin-bottom: 24px;
+}
+
+.student-bg { background-color: #eff6ff; }
+.teacher-bg { background-color: #fdf2f8; }
+.admin-bg { background-color: #fff1f2; }
+
+.pathway-card h3 {
+  font-size: 1.3rem;
+  margin: 0 0 12px 0;
+  color: #0f172a;
+}
+
+.pathway-card p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.card-action-text {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.student-text { color: #2563eb; }
+.teacher-text { color: #db2777; }
+.admin-text { color: #e11d48; }
+
+/* --- TWO-COLUMN FOCUS LAYOUT DISPLAY --- */
+.split-focus-section {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  padding: 80px 6rem 120px 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.split-text-block, .split-media-block {
+  flex: 1;
+}
+
+.split-text-block h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 16px 0;
+  letter-spacing: -1px;
+}
+
+.split-text-block p {
+  color: #64748b;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  margin-bottom: 32px;
+}
+
+.split-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.split-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.check-bullet {
+  color: #4f46e5;
+  font-weight: 700;
+}
+
+/* HIGH FIDELITY DEVICE OVERLAY MOCKUP */
+.glass-mockup-device {
+  background: linear-gradient(135deg, #e0e7ff 0%, #fae8ff 100%);
+  height: 320px;
+  border-radius: 24px;
+  padding: 36px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mockup-header {
+  font-weight: 700;
+  color: #1e1b4b;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+.mockup-chart-visual {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  height: 120px;
+  width: 100%;
+}
+
+.mock-bar {
+  width: 44px;
+  background-color: #4f46e5;
+  border-radius: 6px;
+}
+
+.bar-1 { height: 50px; opacity: 0.5; }
+.bar-2 { height: 110px; }
+.bar-3 { height: 80px; opacity: 0.75; }
+
+.floating-productivity-pill {
+  position: absolute;
+  bottom: -15px;
+  left: 36px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1e293b;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.pill-bold-num {
+  color: #4f46e5;
+  font-weight: 700;
+  margin-left: 4px;
+}
+
+.device-screen {
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.dashboard-mockup {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* RESPONSIVE BREAKPOINT ENGAGEMENT ENGINE */
+@media (max-width: 1024px) {
+  .navbar-container { padding: 1.5rem 2rem; }
+  .pathway-section, .split-focus-section { padding: 40px 2rem; }
+  .pathway-grid-container, .split-focus-section { flex-direction: column; gap: 32px; }
+  .hero-title { font-size: 2.6rem; }
+}

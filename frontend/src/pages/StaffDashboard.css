@@ -1,0 +1,337 @@
+.admin-dashboard-wrapper {
+  background-color: #f8fafc;
+  padding: 40px 6rem;
+  min-height: 90vh;
+  width: 100%;
+}
+
+/* --- THE HEADER BRANDING CONTROL STRIP --- */
+.admin-action-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.admin-strip-branding h1 {
+  margin: 4px 0 0 0;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -1px;
+}
+
+.role-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+.badge-faculty { background-color: #fdf2f8; color: #db2777; }
+.badge-superadmin { background-color: #ffe4e6; color: #e11d48; }
+
+.btn-admin-logout {
+  background-color: #ffffff;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.btn-admin-logout:hover {
+  color: #ef4444;
+  border-color: #fca5a5;
+}
+
+/* --- DUAL GRID GRID BOX PIPES --- */
+.admin-grid-layout {
+  display: flex;
+  gap: 32px;
+}
+
+.admin-main-panel {
+  flex: 2.2;
+}
+
+.admin-side-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* --- THE CARD AND TABLE ENGINE --- */
+.database-card-wrapper, .control-card-wrapper {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.card-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 16px;
+}
+
+.card-header-flex h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.live-pill {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #22c55e;
+  letter-spacing: 0.5px;
+}
+
+/* --- STRUCTURAL DATA TABLES --- */
+.table-responsive-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.db-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.db-data-table th {
+  background-color: #f8fafc;
+  color: #64748b;
+  font-weight: 700;
+  padding: 14px 16px;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.db-data-table td {
+  padding: 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #475569;
+}
+
+.font-bold-dark { font-weight: 600; color: #0f172a !important; }
+.font-bold-purple { font-weight: 700; color: #4f46e5; }
+
+.dept-pill {
+  background-color: #eff6ff;
+  color: #2563eb;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.text-center { text-align: center; }
+
+/* --- PERMANENT DROP ACTION CONTROLS --- */
+.btn-table-action-delete {
+  background-color: #fff1f2;
+  color: #e11d48;
+  border: 1px solid #fecdd3;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.btn-table-action-delete:hover {
+  background-color: #ffe4e6;
+  border-color: #fda4af;
+}
+
+/* --- RIGHT CONTROLLERS ELEMENT INSIDES --- */
+.control-card-wrapper h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.card-instruction-text {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.admin-panel-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-input-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-input-block label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.admin-panel-input {
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  outline: none;
+  background-color: #ffffff;
+}
+
+.admin-panel-input:focus {
+  border-color: #4f46e5;
+}
+
+.btn-execute-modification {
+  background-color: #0f172a;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background-color 0.2s;
+}
+
+.btn-execute-modification:hover { background-color: #1e293b; }
+
+/* --- PERMISSION SAFE BOX SHEETS --- */
+.safety-status-box { transition: background-color 0.2s; }
+.safety-status-box.faculty-locked { background-color: #fafafa; border-style: dashed; }
+.safety-status-box.admin-unlocked { background-color: #fff1f2; border-color: #fecdd3; }
+
+.security-alert-unlocked, .security-alert-locked {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.security-alert-unlocked p { color: #9f1239; }
+.security-alert-locked p { color: #64748b; }
+.pulse-alert-icon { font-size: 1.2rem; }
+.lock-icon { font-size: 1.1rem; opacity: 0.6; }
+
+/* RESPONSIVE MATRIX SWITCH */
+@media (max-width: 1100px) {
+  .admin-dashboard-wrapper { padding: 40px 2rem; }
+  .admin-grid-layout { flex-direction: column; }
+}
+
+/* Keep all previous styles from step 5, and insert these enhancements: */
+
+.table-row-item {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.table-row-item:hover {
+  background-color: #f8fafc;
+}
+
+/* 🎯 Highlight styling for a row currently open in the editor channel */
+.table-row-item.row-inspecting {
+  background-color: #f5f3ff !important;
+  border-left: 4px solid #4f46e5;
+}
+
+.table-tip-footer {
+  margin: 16px 0 0 0;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.selector-highlight {
+  border: 1px solid #c7d2fe !important;
+  background-color: #fefeff !important;
+  font-weight: 600;
+}
+
+/* --- FLEX BOX STRUCTURAL ROW FIELDS --- */
+.form-input-row-flex {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.form-input-row-flex .form-input-block {
+  flex: 1;
+}
+
+/* --- ANIMATION SLIDES FOR THE DEEP FIELDS CARD --- */
+.inspector-fields-fadein {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: slideFormDown 0.2s ease-out;
+}
+
+.btn-cancel-inspection {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+  text-align: center;
+}
+
+.btn-cancel-inspection:hover {
+  color: #64748b;
+  text-decoration: underline;
+}
+
+/* --- INITIATOR FALLBACK DISPLAY NOTICE --- */
+.inspector-fallback-notice {
+  text-align: center;
+  padding: 32px 16px;
+  border: 2px dashed #e2e8f0;
+  border-radius: 12px;
+  background-color: #fafafa;
+}
+
+.notice-icon {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 8px;
+  opacity: 0.5;
+}
+
+.inspector-fallback-notice p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+@keyframes slideFormDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
