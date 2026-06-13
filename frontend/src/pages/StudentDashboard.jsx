@@ -1,14 +1,60 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'; // Imported Axios for live sync connectivity
 import './StudentDashboard.css';
 
 const StudentDashboard = ({ user, onNavigate }) => {
-  // Read real dynamic metrics falling out of your MongoDB student database profile fields
-  const displayName = user?.name || "ALBIN JOSEPH T";
-  const displayRoll = user?.rollNumber || "Nie25cs013";
-  const displayCourse = user?.course || "Computer Science & Engineering";
-  const displayEmail = user?.email || `${displayName.toLowerCase().replace(/\s+/g, '')}@school.edu`;
-  const displayMarks = user?.marks !== undefined ? user?.marks : 92;
-  const displayAttendance = user?.attendance || "94.2%";
+  // 📡 ADD LIVE SYNC STATE
+  const [liveUser, setLiveUser] = useState(user);
+
+// Fetch fresh profile state values directly from the database engine on mount
+  useEffect(() => {
+    const fetchFreshStudentData = async () => {
+      // 🌟 FIXED: Added exhaustive checks for every possible MERN stack ID variant
+      const studentId = user?._id || user?.id || user?._doc?._id || user?.data?._id;
+      
+      // Temporary check to see if the ID is actually reaching the component
+      console.log("DEBUG: Current session studentId parsed as:", studentId);
+      
+      if (!studentId) {
+        console.warn("DEBUG: Fetch skipped because no valid student ID was found in props.");
+        return;
+      }
+
+      try {
+        const response = await axios.get(`http://localhost:5000/api/students`);
+        
+        // Loose equality comparison (==) handles string vs object ID variations beautifully
+        const freshData = response.data.find(s => 
+          s._id == studentId || 
+          s.id == studentId || 
+          s._id?.toString() === studentId?.toString()
+        );
+
+        if (freshData) {
+          console.log("DEBUG: Match found in DB! Live Attendance is:", freshData.attendance);
+          setLiveUser(freshData);
+        } else {
+          console.warn("DEBUG: API called successfully, but no student matched ID:", studentId);
+        }
+      } catch (error) {
+        console.error("Error refreshing live dashboard data stream:", error.message);
+      }
+    };
+
+    fetchFreshStudentData();
+  }, [user]);
+
+  // Read real dynamic metrics falling out of your live synchronized state fields
+  const displayName = liveUser?.name || "ALBIN JOSEPH T";
+  const displayRoll = liveUser?.rollNumber || "Nie25cs013";
+  const displayCourse = liveUser?.course || "Computer Science & Engineering";
+  // Sync email checks against backend keys
+  const displayEmail = liveUser?.email || `${displayName.toLowerCase().replace(/\s+/g, '')}@school.edu`;
+  const displayMarks = liveUser?.marks !== undefined ? liveUser?.marks : 92;
+  
+  const displayAttendance = liveUser?.attendance != null // ✅ FIXED: != null covers both undefined and null cleanly
+    ? `${liveUser.attendance}%`
+    : "0%";
 
   return (
     <div className="dashboard-view-wrapper">
@@ -16,7 +62,7 @@ const StudentDashboard = ({ user, onNavigate }) => {
       {/* --- DASHBOARD MINI-HEADER BANNER --- */}
       <header className="dashboard-action-strip">
         <div className="strip-branding">
-          <span className="strip-badge"> INTERNAL PORTAL</span>
+      
           <h1>Student Workspace</h1>
         </div>
         <button onClick={() => {
@@ -92,15 +138,9 @@ const StudentDashboard = ({ user, onNavigate }) => {
               <div className="attendance-text-side">
                 <div className="attendance-badge-icon">📅</div>
                 <div>
-                  <h3>{displayAttendance} Attendance Maintained</h3>
+                 <h3>{displayAttendance} Attendance Maintained</h3>
                   <p>Excellent consistency metrics across active running laboratory sessions.</p>
                 </div>
-              </div>
-              <div className="attendance-mock-chart-bars">
-                <div className="mock-chart-bar-pill fill-80"></div>
-                <div className="mock-chart-bar-pill fill-95"></div>
-                <div className="mock-chart-bar-pill fill-90"></div>
-                <div className="mock-chart-bar-pill fill-100"></div>
               </div>
             </div>
           </div>

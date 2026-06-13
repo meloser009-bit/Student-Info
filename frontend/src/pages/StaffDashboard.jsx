@@ -34,7 +34,7 @@ const StaffDashboard = ({ user, onNavigate }) => {
         roll: s.rollNumber,
         dept: s.course,
         marks: s.marks,
-        attendance: s.attendance || "85%" // Fallback default value
+        attendance: s.attendance !== undefined ? s.attendance : 85 // Pull pure number
       }));
       setStudents(mappedStudents);
     } catch (error) {
@@ -66,6 +66,14 @@ const StaffDashboard = ({ user, onNavigate }) => {
     }
   }, [selectedStudentId, students]);
 
+  // Helper function to safely extract numbers from string inputs containing %
+  const cleanNumericValue = (val) => {
+    if (typeof val === 'number') return val;
+    if (!val) return 0;
+    const stringVal = String(val).replace('%', '').trim();
+    return parseInt(stringVal) || 0;
+  };
+
   // 💾 STEP 2: OVERHAULED GLOBAL MODIFIER (PUT Request)
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
@@ -76,8 +84,9 @@ const StaffDashboard = ({ user, onNavigate }) => {
         name: editName.toUpperCase(),
         rollNumber: editRoll,
         course: editDept.toUpperCase(),
-        marks: parseInt(editMarks),
-        attendance: editAttendance.endsWith('%') ? editAttendance : `${editAttendance}%`
+        marks: parseInt(editMarks || 0),
+        // 🌟 FIX: Convert string inputs like "95%" or "95" safely to raw integer numbers
+        attendance: cleanNumericValue(editAttendance)
       };
 
       // Put to database using MongoDB's string hex ID mapping parameter
@@ -107,7 +116,8 @@ const StaffDashboard = ({ user, onNavigate }) => {
         rollNumber: newRoll,
         course: newDept.toUpperCase(),
         marks: parseInt(newMarks || 0),
-        attendance: newAttendance.endsWith('%') ? newAttendance : `${newAttendance}%`
+        // 🌟 FIX: Convert string input to raw integer number
+        attendance: cleanNumericValue(newAttendance)
       };
 
       const response = await axios.post('http://localhost:5000/api/students', newRecordPayload);
@@ -192,7 +202,8 @@ const StaffDashboard = ({ user, onNavigate }) => {
                       <td><code>{student.roll}</code></td>
                       <td><span className="dept-pill">{student.dept}</span></td>
                       <td className="font-bold-purple">{student.marks}%</td>
-                      <td>{student.attendance}</td>
+                      {/* 🌟 Displaying the percent formatting purely on the UI tier */}
+                      <td>{student.attendance}%</td>
                       {isAdmin && (
                         <td className="text-center" onClick={(e) => e.stopPropagation()}>
                           <button 
@@ -286,13 +297,13 @@ const StaffDashboard = ({ user, onNavigate }) => {
                       />
                     </div>
                     <div className="form-input-block">
-                      <label>Attendance Tracker</label>
+                      <label>Attendance Tracker (%)</label>
                       <input 
                         type="text" 
                         value={editAttendance}
                         onChange={(e) => setEditAttendance(e.target.value)}
                         className="admin-panel-input"
-                        placeholder="e.g. 95%"
+                        placeholder="e.g. 95"
                         required 
                       />
                     </div>
@@ -331,7 +342,7 @@ const StaffDashboard = ({ user, onNavigate }) => {
                   value={newName} 
                   onChange={(e) => setNewName(e.target.value)} 
                   className="admin-panel-input" 
-                  placeholder="e.g. name" 
+                  placeholder="e.g. John Doe" 
                   required 
                 />
               </div>
@@ -344,7 +355,7 @@ const StaffDashboard = ({ user, onNavigate }) => {
                     value={newRoll} 
                     onChange={(e) => setNewRoll(e.target.value)} 
                     className="admin-panel-input" 
-                    placeholder="roll no" 
+                    placeholder="e.g. NIE25CS001" 
                     required 
                   />
                 </div>
@@ -355,7 +366,7 @@ const StaffDashboard = ({ user, onNavigate }) => {
                     value={newDept} 
                     onChange={(e) => setNewDept(e.target.value)} 
                     className="admin-panel-input" 
-                    placeholder="course" 
+                    placeholder="e.g. CSE" 
                     required 
                   />
                 </div>
@@ -370,18 +381,18 @@ const StaffDashboard = ({ user, onNavigate }) => {
                     value={newMarks} 
                     onChange={(e) => setNewMarks(e.target.value)} 
                     className="admin-panel-input" 
-                    placeholder="" 
+                    placeholder="0" 
                     required 
                   />
                 </div>
                 <div className="form-input-block">
-                  <label>Attendance Status</label>
+                  <label>Attendance Status (%)</label>
                   <input 
                     type="text" 
                     value={newAttendance} 
                     onChange={(e) => setNewAttendance(e.target.value)} 
                     className="admin-panel-input" 
-                    placeholder="" 
+                    placeholder="85" 
                     required 
                   />
                 </div>

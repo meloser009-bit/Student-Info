@@ -39,11 +39,13 @@ export const loginUser = async (req, res) => {
     // Authentication Success Response matching your schema properties
     res.status(200).json({
       success: true,
+      _id: student._id, // 🌟 FIXED: Passed database ID down so your useEffect sync can find it!
       role: student.role || 'student',
       name: student.name,
       rollNumber: student.rollNumber,
       course: student.course,
       marks: student.marks,
+      attendance: student.attendance ?? 0, // 🌟 FIXED: Included the live attendance metric field
       email: student.email
     });
 

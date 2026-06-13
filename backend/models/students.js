@@ -24,13 +24,20 @@ const StudentSchema = new mongoose.Schema(
       min: 0,
       max: 100
     },
+    // 🌟 ADDED ATTENDANCE TRACKING FIELD
+    attendance: {
+      type: Number,
+      default: 0, // Defaults to 0% attendance if not specified yet
+      min: 0,
+      max: 100
+    },
     email: {
       type: String,
       required: true,
       unique: true, // Ensured unique so two students can't share an email
       trim: true
     },
-    // --- ADDED AUTHENTICATION FIELDS ---
+    // --- AUTHENTICATION FIELDS ---
     password: {
       type: String,
       required: true

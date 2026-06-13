@@ -30,11 +30,13 @@ const Login = ({ onNavigate, initialRole, setSessionUser }) => {
 
         // Transform API payload directly into your shared state format
         const activeUserProfile = {
+          _id: user._id || user.id, // 🌟 FIXED: Preservation of Database ID for live sync
           name: user.name,
           role: user.role, 
           rollNumber: user.rollNumber || "STAFF_2026",
           course: user.course || "N/A",
           marks: user.marks || 0,
+          attendance: user.attendance ?? 0, // 🌟 FIXED: Preservation of attendance metric
           email: user.email || email
         };
 
